@@ -48,25 +48,25 @@ public class FoodController {
 		return ResponseEntity.ok(food);
 	}
 	
-	@GetMapping("/food/{name}")
-	public List<Food> getFoodByName(@PathVariable String food_name){
-		//return foodRepo.findByName(food_name);
-		
-			List <Food> food=foodRepo.findByName(food_name);
-			if(food.isEmpty()){
-				System.out.println(new ResourceNotFoundException("Category with the name "+ food_name +" not found"));
-				}
-				
-			return foodRepo.findByName(food_name);
-	}
+//	@GetMapping("/food/{name}")
+//	public List<Food> getFoodByName(@PathVariable String food_name){
+//		//return foodRepo.findByName(food_name);
+//		
+//			List <Food> food=foodRepo.findByName(food_name);
+//			if(food.isEmpty()){
+//				System.out.println(new ResourceNotFoundException("Category with the name "+ food_name +" not found"));
+//				}
+//				
+//			return foodRepo.findByName(food_name);
+//	}
 	
 	
 @PutMapping("/food/{id}")
 public ResponseEntity<Food> updateFood(@PathVariable int food_id, @RequestBody Food food)
 {
-	Food food = foodRepo.findById(food_id).orElseThrow(() ->  new ResourceNotFoundException("Food not found"));
-    food.setFood_name(food.getFood_name());
-    Food updatedFood=foodRepo.save(food);
+	Food fd = foodRepo.findById(food_id).orElseThrow(() ->  new ResourceNotFoundException("Food not found"));
+    fd.setFood_name(food.getFood_name());
+    Food updatedFood=foodRepo.save(fd);
     return ResponseEntity.ok(updatedFood);
 }
 
