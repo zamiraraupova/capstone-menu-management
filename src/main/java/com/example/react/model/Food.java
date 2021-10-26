@@ -5,8 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,27 +15,25 @@ public class Food {
 	private int food_id;
 	private String food_name;
 	private String food_desc;
+	private String food_category;
 	private int food_price;
-	@ManyToOne // relationship
-	@JoinColumn(name="cat_id")
-//	@Column(name="cat_id")
-	private Category category;
 	
-	public Food() {
-		
+	public int getFood_id() {
+		return food_id;
 	}
 
-	public Food(int food_id, String food_name, String food_desc, int food_price, Category category) {
+
+	public Food(int food_id, String food_name, String food_desc, String food_category, int food_price) {
 		super();
 		this.food_id = food_id;
 		this.food_name = food_name;
 		this.food_desc = food_desc;
+		this.food_category = food_category;
 		this.food_price = food_price;
-		this.category = category;
 	}
 
-	public int getFood_id() {
-		return food_id;
+	public Food() {
+		
 	}
 
 	public void setFood_id(int food_id) {
@@ -60,6 +56,14 @@ public class Food {
 		this.food_desc = food_desc;
 	}
 
+	public String getFood_category() {
+		return food_category;
+	}
+
+	public void setFood_category(String food_category) {
+		this.food_category = food_category;
+	}
+
 	public int getFood_price() {
 		return food_price;
 	}
@@ -68,14 +72,5 @@ public class Food {
 		this.food_price = food_price;
 	}
 
-	public Category getCategory() {
-		return category;
-	}
-
-	public void setCategory(Category category) {
-		this.category = category;
-	}
-
-	
 	
 }
