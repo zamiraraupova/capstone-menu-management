@@ -9,7 +9,7 @@ class AddFood extends Component {
            food_id: '',
            food_name:'',
            food_desc:'',
-           food_cat:'',
+           food_category:'',
            food_price:''
            
         }
@@ -41,7 +41,7 @@ class AddFood extends Component {
 
     catHandler=(event) => {
         this.setState({
-           food_cat: event.target.value});
+           food_category: event.target.value});
     }
 
     priceHandler=(event) => {
@@ -55,7 +55,7 @@ class AddFood extends Component {
            food_id: this.state.food_id,
            food_name: this.state.food_name,
            food_desc: this.state.food_desc,
-           food_cat: this.state.food_cat,
+           food_category: this.state.food_category,
            food_price: this.state.food_price,
         };
         console.log(food);
@@ -99,7 +99,7 @@ class AddFood extends Component {
                                      <div className="form-group">
                                      <label>Food Category: </label>
                                      <input placeholder="Category" name="cat" className="form-control"
-                                        value={this.state.food_cat} onChange={this.catHandler} />
+                                        value={this.state.food_category} onChange={this.catHandler} />
                                   </div> 
                                    <div className="form-group">
                                    <label>Food Price: </label>

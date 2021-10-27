@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Header extends Component {
     render() {
         return (
-            <div>
+            <div className="header">
                 <header>
                     <nav className="navbar">
                         <div><b>Menu Management Application</b></div>

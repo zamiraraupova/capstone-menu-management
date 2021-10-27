@@ -10,7 +10,7 @@ class DeleteFood extends Component {
                 food_id: this.props.match.params.id,
                 food_name:'',
                 food_desc:'',
-                food_cat:'',
+                food_category:'',
                 food_price:''
              }
      
@@ -23,23 +23,24 @@ class DeleteFood extends Component {
      {
         FoodService.getFoodById(this.state.food_id).then((res) =>{
           let food = res.data;
+          console.log(food)
           this.setState({food_name:this.state.food_name,
-                  food_desc:this.state.food_desc
+                  food_desc:this.state.food_desc,
+                  food_category:this.state.food_category,
+                  food_price:this.state.food_price
                 });
         });
            
      }
      
-    
-
-    
-  deleteStudent = (e) => {
+ 
+  deleteFood = (e) => {
         e.preventDefault();
         let food={
            food_id: this.state.food_id,
            food_name: this.state.food_name,
            food_desc: this.state.food_desc,
-           food_cat: this.state.food_cat,
+           food_category: this.state.food_category,
            food_price: this.state.food_price
         };
 
@@ -77,17 +78,17 @@ class DeleteFood extends Component {
                                    </div>   
                                    <div className="form-group">
                                       <label>Food Descrition: </label>
-                                      <input placeholder="Grade" readOnly="true" name="desc" className="form-control"
+                                      <input placeholder="Descrition" readOnly="true" name="desc" className="form-control"
                                          value={this.state.food_desc} onChange={this.descHandler} />
                                    </div> 
                                    <div className="form-group">
                                       <label>Food Category: </label>
-                                      <input placeholder="Name" name="cat" className="form-control"
-                                         value={this.state.food_cat} onChange={this.catHandler} />
+                                      <input placeholder="Category" name="cat" className="form-control"
+                                         value={this.state.food_category} onChange={this.catHandler} />
                                    </div> 
                                    <div className="form-group">
                                       <label>Food Price: </label>
-                                      <input placeholder="Name" name="price" className="form-control"
+                                      <input placeholder="Price" name="price" className="form-control"
                                          value={this.state.food_price} onChange={this.priceHandler} />
                                    </div>  
                                     <button className="btn btn-success" onClick={this.deleteFood}> Delete </button>

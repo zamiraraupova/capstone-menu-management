@@ -1,8 +1,19 @@
-/* .App {
-  text-align: center;
+.app {
+  font-family: fantasy;
+  font-weight: bold;
+  font-size: larger;
+  background-color: blanchedalmond;
+  /* background-image: url("https://images.immediate.co.uk/production/volatile/sites/2/2020/07/OliveSkewers_IndianKebabs_preview-48ce677.jpg?quality=90&resize=768,574");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; */
 }
 
-.container{
+
+.footer{
+  align-items: center;
+}
+/* .container{
   display: flex;
   border: solid black 1px;
 }

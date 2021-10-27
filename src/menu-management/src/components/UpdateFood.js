@@ -5,29 +5,41 @@ class UpdateFood extends Component {
     constructor(props)
     {
         super(props)
+        // super(props)
+        
+        //      this.state={
+        //          id: this.props.match.params.id,
+        //          menu:{}
+
+        //      }
         
              this.state={
                  food_id: this.props.match.params.food_id,
                  food_name:'',
                  food_desc:'',
-                 food_cat:'',
+                 food_category:'',
                  food_price:''
              }
      
-        // this.idHandler = this.idHandler.bind(this);
-        // this.nameHandler = this.nameHandler.bind(this);
-        // this.descHandler = this.descHandler.bind(this);
-        // this.catHandler = this.catHandler.bind(this);
-        // this.priceHandler = this.priceHandler.bind(this);
-
+        this.idHandler = this.idHandler.bind(this);
+        this.nameHandler = this.nameHandler.bind(this);
+        this.descHandler = this.descHandler.bind(this);
+        this.catHandler = this.catHandler.bind(this);
+        this.priceHandler = this.priceHandler.bind(this);
+        this.updateFood = this.updateFood.bind(this);     
     }//constructor
 
      componentDidMount()
      {
         FoodService.getFoodById(this.state.food_id).then((res) =>{
-          let food = res.data;
-          this.setState({food_name:this.state.food_name
-                });
+          let fd = res.data;
+          //console.log(typeof res.data)
+          this.setState({
+                food_name:fd.food_name,
+                food_desc:fd.food_desc,
+                food_category:fd.food_category,
+                food_price:fd.food_price
+            });
         });
            
      }
@@ -41,6 +53,20 @@ class UpdateFood extends Component {
         this.setState({
            food_name: event.target.value});
     }
+    descHandler=(event) => {
+        this.setState({
+           food_desc: event.target.value});
+    }
+
+    catHandler=(event) => {
+        this.setState({
+           food_category: event.target.value});
+    }
+
+    priceHandler=(event) => {
+        this.setState({
+           food_price: event.target.value});
+    }
 
    updateFood = (e) => {
         e.preventDefault();
@@ -48,7 +74,7 @@ class UpdateFood extends Component {
            food_id: this.state.food_id,
            food_name: this.state.food_name,
            food_desc: this.state.food_desc,
-           food_cat: this.state.food_cat,
+           food_category: this.state.food_category,
            food_price: this.state.food_price,
         };
         
@@ -83,17 +109,17 @@ class UpdateFood extends Component {
                                    </div> 
                                    <div className="form-group">
                                       <label> Food Description: </label>
-                                      <input placeholder="Name" name="desc" className="form-control"
+                                      <input placeholder="Description" name="desc" className="form-control"
                                          value={this.state.food_desc} onChange={this.descHandler} />
                                    </div> 
                                    <div className="form-group">
                                       <label>Food Category: </label>
-                                      <input placeholder="Name" name="cat" className="form-control"
-                                         value={this.state.food_cat} onChange={this.catHandler} />
+                                      <input placeholder="Category" name="category" className="form-control"
+                                         value={this.state.food_category} onChange={this.catHandler} />
                                    </div> 
                                    <div className="form-group">
                                       <label>Food Price: </label>
-                                      <input placeholder="Name" name="price" className="form-control"
+                                      <input placeholder="Price" name="price" className="form-control"
                                          value={this.state.food_price} onChange={this.priceHandler} />
                                    </div>
                                     <button className="btn btn-success" onClick={this.updateFood}> Update </button>

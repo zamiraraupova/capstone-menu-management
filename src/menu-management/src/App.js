@@ -12,13 +12,13 @@ import Footer from './components/Footer';
 
 function App() {
     return (
-        <div>
+        <div className="app">
           <Router>
           <Header />
             <div className="container">
               <Switch>
-                  <Route path="/" component={ListFood}></Route>
-                  {/* <Route path="/food" component={ListFood}></Route> */}
+                  <Route exact path="/" component={ListFood}></Route>
+                  <Route path="/food" component={ListFood}></Route>
                   <Route path="/addfood" component={AddFood}></Route>
                   <Route path="/updatefood/:id" component={UpdateFood}></Route>
                   <Route path="/deletefood/:id" component={DeleteFood}></Route> 
