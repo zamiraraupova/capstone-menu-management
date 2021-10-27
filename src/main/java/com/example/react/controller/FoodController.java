@@ -29,20 +29,21 @@ public class FoodController {
 	
 	private FoodRepository foodRepo;
 	
-	//get all categories
+	//get all entree
 	
 	@GetMapping("/allfood")
 	public List<Food> getAllFood(){
 		return foodRepo.findAll();
 		
 	}
-	
+	//adding new entree
 	@PostMapping("/addfood")
 	public Food newFood(@RequestBody Food food) {
 		return foodRepo.save(food);
 	}
 	
-	@GetMapping("/food/{food_id}")
+	//find by id
+	@GetMapping("/allfood/{food_id}")
 	public ResponseEntity<Food> getFoodById(@PathVariable int food_id){
 		Food food = foodRepo.findById(food_id).orElseThrow(() -> new ResourceNotFoundException("Food not found"));
 		return ResponseEntity.ok(food);
@@ -60,8 +61,9 @@ public class FoodController {
 //			return foodRepo.findByName(food_name);
 //	}
 	
-	
-@PutMapping("/food/{food_id}")
+
+	// over writing old entree and SAVING new ent, and returning  === update
+@PutMapping("/allfood/{food_id}")
 public ResponseEntity<Food> updateFood(@PathVariable int food_id, @RequestBody Food food)
 {
 	Food fd = foodRepo.findById(food_id).orElseThrow(() ->  new ResourceNotFoundException("Food not found"));
@@ -69,11 +71,12 @@ public ResponseEntity<Food> updateFood(@PathVariable int food_id, @RequestBody F
     fd.setFood_desc(food.getFood_desc());
     fd.setFood_category(food.getFood_category());
     fd.setFood_price(food.getFood_price());
-    Food updatedFood=foodRepo.save(fd);          // over writing old entree and SAVING new ent, and returning
+    Food updatedFood=foodRepo.save(fd);          
     return ResponseEntity.ok(updatedFood);
 }
 
-@DeleteMapping("/food/{food_id}")
+// deleting an entree
+@DeleteMapping("/allfood/{food_id}")
 public String deleteFood(@PathVariable int food_id)
 {
 	foodRepo.findById(food_id).orElseThrow(() ->  new ResourceNotFoundException("Food not found"));
