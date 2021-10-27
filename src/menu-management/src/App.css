@@ -2,7 +2,7 @@
   font-family: fantasy;
   font-weight: bold;
   font-size: larger;
-  background-color: blanchedalmond;
+  background-color: rgb(77, 77, 77)
   /* background-image: url("https://images.immediate.co.uk/production/volatile/sites/2/2020/07/OliveSkewers_IndianKebabs_preview-48ce677.jpg?quality=90&resize=768,574");
   background-size: cover;
   background-position: center;
@@ -13,6 +13,13 @@
 .footer{
   align-items: center;
 }
+
+#icon{
+  height: 1cm;
+  width: 1cm;
+  position: relative;
+} 
+
 /* .container{
   display: flex;
   border: solid black 1px;

@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import FoodService from '../services/FoodService';
 //import AddFood from './AddFood';
+import update from '../images/update.png'
+import add from '../images/add.png'
+import trash from '../images/trash.png'
+
 
 class ListFood extends Component {
       constructor(props)
@@ -58,7 +62,7 @@ class ListFood extends Component {
                 <h2 className="text-center">Menu List</h2>
                 <div> 
                     {/* <AddFood> Add </AddFood> */}
-                    <button className="btn btn-primary" onClick={this.addFood}> Add Food </button>
+                    <button onClick={this.addFood}> <img id="icon" src={add} alt="home"></img> </button>
                 </div>
                 <div>
                     <p></p>
@@ -86,8 +90,8 @@ class ListFood extends Component {
                                          <td>{food.food_category}</td>
                                          <td>{food.food_price}</td>
                                          <td>
-                                            <button onClick={() =>this.updateFood(food.food_id)} className="btn btn-primary">Update</button> 
-                                            <button onClick={() =>this.deleteFood(food.food_id)} className="btn btn-danger">Delete</button> 
+                                            <button onClick={() =>this.updateFood(food.food_id)}>  <img id="icon" src={update} alt="home"></img> </button> 
+                                            <button onClick={() =>this.deleteFood(food.food_id)}>  <img id="icon" src={trash} alt="home"></img> </button> 
                                             {/* <button onClick={() =>this.viewFood(student.id)} className="btn btn-primary">View</button>  */}
                                          </td>
                                      </tr>

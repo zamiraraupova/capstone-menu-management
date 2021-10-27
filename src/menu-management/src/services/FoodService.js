@@ -8,7 +8,7 @@ class FoodService{
     }
 
     createFood(food){
-        return axios.post(FOOD_API_BASE_URL + "/addfood", food);
+        return axios.post(FOOD_API_BASE_URL + "/food", food);
     }
 
     getFoodById(food_id){
@@ -16,12 +16,12 @@ class FoodService{
     }
 
     updateFood(food, food_id){
-        //console.log(food_id)
+        console.log(food_id)
         return axios.put(FOOD_API_BASE_URL + "/allfood/" + food_id, food);
     }
 
     deleteFood(food_id){
-        return axios.delete(FOOD_API_BASE_URL + "/allfood/" + food_id);
+        return axios.delete(FOOD_API_BASE_URL + "/food/" + food_id);
     }
 
  }

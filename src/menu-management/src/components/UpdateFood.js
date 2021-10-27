@@ -1,24 +1,18 @@
 import React, { Component } from 'react';
 import FoodService from '../services/FoodService';
 
+
 class UpdateFood extends Component {
     constructor(props)
     {
         super(props)
-        // super(props)
-        
-        //      this.state={
-        //          id: this.props.match.params.id,
-        //          menu:{}
 
-        //      }
-        
              this.state={
-                 food_id: this.props.match.params.food_id,
+                 food_id: this.props.match.params.id,
                  food_name:'',
                  food_desc:'',
                  food_category:'',
-                 food_price:''
+                 food_price:0
              }
      
         this.idHandler = this.idHandler.bind(this);
@@ -32,13 +26,13 @@ class UpdateFood extends Component {
      componentDidMount()
      {
         FoodService.getFoodById(this.state.food_id).then((res) =>{
-          let fd = res.data;
+          let food = res.data;
           //console.log(typeof res.data)
           this.setState({
-                food_name:fd.food_name,
-                food_desc:fd.food_desc,
-                food_category:fd.food_category,
-                food_price:fd.food_price
+                food_name:this.state.food_name,
+                food_desc:this.state.food_desc,
+                food_category:this.state.food_category,
+                food_price:this.state.food_price
             });
         });
            
@@ -75,10 +69,10 @@ class UpdateFood extends Component {
            food_name: this.state.food_name,
            food_desc: this.state.food_desc,
            food_category: this.state.food_category,
-           food_price: this.state.food_price,
+           food_price: Number(this.state.food_price)
         };
         
-        FoodService.updateFood(food,this.state.food_id).then((res) => {
+        FoodService.updateFood(food, this.state.food_id).then((res) => {
                 this.props.history.push('/food');
         });
   
@@ -104,25 +98,25 @@ class UpdateFood extends Component {
                                    </div>   
                                    <div className="form-group">
                                       <label>Food Name: </label>
-                                      <input placeholder="Name" name="name" className="form-control"
+                                      <input placeholder={this.state.food_name} name="name" className="form-control"
                                          value={this.state.food_name} onChange={this.nameHandler} />
                                    </div> 
                                    <div className="form-group">
                                       <label> Food Description: </label>
-                                      <input placeholder="Description" name="desc" className="form-control"
+                                      <input placeholder={this.state.food_desc} name="desc" className="form-control"
                                          value={this.state.food_desc} onChange={this.descHandler} />
                                    </div> 
                                    <div className="form-group">
                                       <label>Food Category: </label>
-                                      <input placeholder="Category" name="category" className="form-control"
+                                      <input placeholder={this.state.food_category} name="category" className="form-control"
                                          value={this.state.food_category} onChange={this.catHandler} />
                                    </div> 
                                    <div className="form-group">
                                       <label>Food Price: </label>
-                                      <input placeholder="Price" name="price" className="form-control"
+                                      <input type="number" placeholder={this.state.food_price} name="price" className="form-control"
                                          value={this.state.food_price} onChange={this.priceHandler} />
                                    </div>
-                                    <button className="btn btn-success" onClick={this.updateFood}> Update </button>
+                                    <button className="btn btn-success" id={this.props.food_id} onClick={this.updateFood}> Update </button>
                                     <button className="btn btn-danger" onClick={this.cancel.bind(this)}> Cancel </button>                    
                               </form>
                           </div>
