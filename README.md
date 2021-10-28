@@ -6,8 +6,6 @@ It is a Full Stack Web Application.
 
 
 ## Tech Stack 
-React.js, React Router (Hooks), Redux
-
 
 React, Sprint Boot, MySQL
 
