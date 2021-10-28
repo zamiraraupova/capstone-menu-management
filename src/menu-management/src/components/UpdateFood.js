@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import FoodService from '../services/FoodService';
-
+import update from '../images/update.png';
+import cancel from '../images/cancel.png';
 
 class UpdateFood extends Component {
     constructor(props)
@@ -27,12 +28,12 @@ class UpdateFood extends Component {
      {
         FoodService.getFoodById(this.state.food_id).then((res) =>{
           let food = res.data;
-          //console.log(typeof res.data)
+          console.log(res.data)
           this.setState({
-                food_name:this.state.food_name,
-                food_desc:this.state.food_desc,
-                food_category:this.state.food_category,
-                food_price:this.state.food_price
+                food_name:food.food_name,
+                food_desc:food.food_desc,
+                food_category:food.food_category,
+                food_price:food.food_price
             });
         });
            
@@ -84,40 +85,49 @@ class UpdateFood extends Component {
 
     render() {
         return (
-            <div>
-               <div className="container">
+            <div className="page">
+               <div className="container" >
                    <div className="row">
-                      <div className="card col-md-6 offset-md-3 offset-md-3">
+                      <div className="card col-md-6 offset-md-3 offset-md-3"  id="table">
                           <h3 className="text-center">Update Food</h3>
                           <div className="card-body">
                               <form>  
                                   <div className="form-group">
-                                      <label>Food ID: </label>
+                                      <label id="label">Food ID: </label>
                                       <input placeholder={this.state.food_id} readOnly="true" name="id" className="form-control"
                                          value={this.state.food_id} onChange={this.idHandler} />
                                    </div>   
                                    <div className="form-group">
-                                      <label>Food Name: </label>
+                                      <label id="label">Food Name: </label>
                                       <input placeholder={this.state.food_name} name="name" className="form-control"
                                          value={this.state.food_name} onChange={this.nameHandler} />
                                    </div> 
                                    <div className="form-group">
-                                      <label> Food Description: </label>
+                                      <label id="label"> Food Description: </label>
                                       <input placeholder={this.state.food_desc} name="desc" className="form-control"
                                          value={this.state.food_desc} onChange={this.descHandler} />
                                    </div> 
                                    <div className="form-group">
-                                      <label>Food Category: </label>
-                                      <input placeholder={this.state.food_category} name="category" className="form-control"
-                                         value={this.state.food_category} onChange={this.catHandler} />
+                                      <label id="label">Food Category: </label>
+                                      {/* add value & onChange to <select> in order to have values saved to database: */}
+                                        <select value={this.state.food_category} onChange={this.catHandler} id="business" name="business">
+                                        <option placeholder="Type" name="type" className="form-control" value="Appetizers">Appetizers</option>
+                                        <option placeholder="Type" name="type" className="form-control" value="Salads">Salads</option>
+                                        <option placeholder="Type" name="type" className="form-control" value="Soups">Soups</option>
+                                        <option placeholder="Type" name="type" className="form-control" value="Entrees">Entrees</option>
+                                        <option placeholder="Type" name="type" className="form-control" value="Desserts">Desserts</option>
+                                        <option placeholder="Type" name="type" className="form-control" value="Drinks">Drinks</option>
+                                    </select>
+                                      {/* <input placeholder={this.state.food_category} name="category" className="form-control"
+                                         value={this.state.food_category} onChange={this.catHandler} /> */}
                                    </div> 
                                    <div className="form-group">
-                                      <label>Food Price: </label>
+                                      <label id="label">Food Price: </label>
                                       <input type="number" placeholder={this.state.food_price} name="price" className="form-control"
                                          value={this.state.food_price} onChange={this.priceHandler} />
                                    </div>
-                                    <button className="btn btn-success" id={this.props.food_id} onClick={this.updateFood}> Update </button>
-                                    <button className="btn btn-danger" onClick={this.cancel.bind(this)}> Cancel </button>                    
+                                    <button id={this.props.food_id} onClick={this.updateFood}> Update <img id="icon" src={update} alt="update"></img></button>
+                                    <button onClick={this.cancel.bind(this)}> Cancel <img id="icon" src={cancel} alt="cancel"></img></button>                    
                               </form>
                           </div>
                       </div>

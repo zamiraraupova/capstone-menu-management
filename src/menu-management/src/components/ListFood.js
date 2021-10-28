@@ -58,17 +58,17 @@ class ListFood extends Component {
     render() {
        
         return (
-            <div>
+            <div className="page">
                 <h2 className="text-center">Menu List</h2>
                 <div> 
                     {/* <AddFood> Add </AddFood> */}
-                    <button onClick={this.addFood}> <img id="icon" src={add} alt="home"></img> </button>
+                    <button onClick={this.addFood}> <img id="icon" src={add} alt="add"></img> </button>
                 </div>
                 <div>
                     <p></p>
                 </div>
                 <div className="row">
-                    <table className="table table-striped table-bordered">
+                    <table className="table table-striped table-bordered" id="table">
                         <thead>
                             <tr>
                                 <th>Food ID </th>
@@ -90,9 +90,8 @@ class ListFood extends Component {
                                          <td>{food.food_category}</td>
                                          <td>{food.food_price}</td>
                                          <td>
-                                            <button onClick={() =>this.updateFood(food.food_id)}>  <img id="icon" src={update} alt="home"></img> </button> 
-                                            <button onClick={() =>this.deleteFood(food.food_id)}>  <img id="icon" src={trash} alt="home"></img> </button> 
-                                            {/* <button onClick={() =>this.viewFood(student.id)} className="btn btn-primary">View</button>  */}
+                                            <button onClick={() =>this.updateFood(food.food_id)}>  <img id="icon" src={update} alt="update"></img> </button> 
+                                            <button onClick={() =>this.deleteFood(food.food_id)}>  <img id="icon" src={trash} alt="trash"></img> </button> 
                                          </td>
                                      </tr>
                                 )

@@ -19,7 +19,7 @@ import com.example.react.model.Food;
 import com.example.react.repository.FoodRepository;
 
 
-@CrossOrigin(origins="http://localhost:3000")
+@CrossOrigin(origins="http://localhost:3001")
 @RestController
 @RequestMapping("/api")
 

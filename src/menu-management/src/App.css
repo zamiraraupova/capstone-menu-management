@@ -1,30 +1,76 @@
+*,*::after,*::before{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; 
+}
 .app {
   font-family: fantasy;
   font-weight: bold;
-  font-size: larger;
-  background-color: rgb(77, 77, 77)
-  /* background-image: url("https://images.immediate.co.uk/production/volatile/sites/2/2020/07/OliveSkewers_IndianKebabs_preview-48ce677.jpg?quality=90&resize=768,574");
+  font-size: 0.5cm;
+  color: aliceblue;
+  /* color: honeydew; */
+  /* height: 100vh; */
+  /* background-color: rgb(77, 77, 77); */
+  background-image: url("https://www.mensjournal.com/wp-content/uploads/2011/05/kebabs.jpg?w=1800&h=1012&crop=1&quality=86&strip=all");
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat; */
+  background-repeat: no-repeat;
 }
-
+.header{
+  font-size: 1cm;
+  color: aliceblue;
+}
+.page{
+  height: 100vh;
+  color: aliceblue;
+}
+.nav-bar {
+  background-color: rgba(230, 158, 71, 0.79);
+}
+.nav-bar ul {
+  display:flex;
+  text-align: right;
+  justify-content: space-evenly;
+  list-style: none;
+}
 
 .footer{
-  align-items: center;
+  display: flex;
+  text-align: left;
+  color: aliceblue;
+  font-weight: bold;
 }
 
+#table{
+  background-color: rgba(164, 104, 58, 0.600);
+  color: aliceblue;
+}
+.text-center{
+  color: black;
+}
+
+#label{
+  color: black;
+}
 #icon{
   height: 1cm;
   width: 1cm;
-  position: relative;
+  background-color: none;
+  /* position: relative; */
 } 
 
-/* .container{
+button{
+  font-size: 0.8rem;
+  padding: 0.2rem;
+  margin:0.1rem;
+  border: 0.1rem #404040 solid;
+  background-color: #fffaed;
+  height: 3rem;
+  border-radius: 12px;
+  cursor: pointer;
+}
+ /* .container{
   display: flex;
   border: solid black 1px;
-}
-
-.footer{
-  align-items: center;
 } */
+

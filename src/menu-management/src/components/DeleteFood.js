@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import FoodService from '../services/FoodService';
+import trash from '../images/trash.png';
+import cancel from '../images/cancel.png';
 
 class DeleteFood extends Component {
     constructor(props)
@@ -59,40 +61,40 @@ class DeleteFood extends Component {
 
     render() {
         return (
-            <div>
+            <div className="page">
                <div className="container">
                    <div className="row">
-                      <div className="card col-md-6 offset-md-3 offset-md-3">
+                      <div className="card col-md-6 offset-md-3 offset-md-3" id="table">
                           <h3 className="text-center">Delete Food</h3>
                           <div className="card-body">
                               <form>  
                                   <div className="form-group">
-                                      <label>Food ID: </label>
+                                      <label id="label">Food ID: </label>
                                       <input placeholder="Id" readOnly="true" name="id" className="form-control"
                                          value={this.state.food_id} onChange={this.idHandler} />
                                    </div>   
                                    <div className="form-group">
-                                      <label>Food Name: </label>
+                                      <label id="label">Food Name: </label>
                                       <input placeholder="Name" readOnly= "true" name="name" className="form-control"
                                          value={this.state.food_name} onChange={this.nameHandler} />
                                    </div>   
                                    <div className="form-group">
-                                      <label>Food Descrition: </label>
+                                      <label id="label">Food Descrition: </label>
                                       <input placeholder="Descrition" readOnly="true" name="desc" className="form-control"
                                          value={this.state.food_desc} onChange={this.descHandler} />
                                    </div> 
                                    <div className="form-group">
-                                      <label>Food Category: </label>
+                                      <label id="label">Food Category: </label>
                                       <input placeholder="Category" name="cat" className="form-control"
                                          value={this.state.food_category} onChange={this.catHandler} />
                                    </div> 
                                    <div className="form-group">
-                                      <label>Food Price: </label>
+                                      <label id="label">Food Price: </label>
                                       <input placeholder="Price" name="price" className="form-control"
                                          value={this.state.food_price} onChange={this.priceHandler} />
                                    </div>  
-                                    <button className="btn btn-success" onClick={this.deleteFood}> Delete </button>
-                                    <button className="btn btn-danger" onClick={this.cancel.bind(this)}> Cancel </button>                    
+                                    <button onClick={this.deleteFood}> Delete <img id="icon" src={trash} alt="trash"></img> </button>
+                                    <button onClick={this.cancel.bind(this)}> Cancel <img id="icon" src={cancel} alt="cancel"></img></button>                    
                               </form>
                           </div>
                       </div>

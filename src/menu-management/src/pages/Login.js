@@ -1,11 +1,17 @@
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
+import login from '../images/login.png';
 
 const Login = (props) => {
-    console.log(props.image)
+    const history = useHistory();
+
+    function submit(){
+        history.push('/food');
+    }
+
     return (
-        <div className="login-page">
-			<form id="form" >
-            {/* <form id="form" onSubmit={this.handleSubmit}> */}
+        <div className="page">
+			{/* <form id="form" > */}
+            <form id="form" onSubmit={submit}>
 				<label htmlFor="username">Username: </label>
 				{/* <input type="text" value={this.state.name} onChange={this.handleChange} id="name" /> */}
 				<input type="text" />
@@ -14,7 +20,7 @@ const Login = (props) => {
 				{/* <input type="text" value={this.state.price} onChange={this.handleChange} id="price" /> */}
 				<input type="text" />
                 <br />
-				<input type="submit" />
+				<button onClick={submit}> <img id="icon" src={login} alt="login"></img> </button>
 			</form>
         </div>
     )

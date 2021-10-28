@@ -6,7 +6,7 @@ class Header extends Component {
             <div className="header">
                 <header>
                     <nav className="navbar">
-                        <div><b>Menu Management Application</b></div>
+                        <div><b>"Om-nom-nom" Kitchen</b></div>
                     </nav>
                 </header>
             </div>
