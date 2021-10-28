@@ -9,7 +9,7 @@ class Footer extends Component {
                     <br/>
                        1-111-222-3333
                     <br/>
-                       email: rendome@email.com
+                       email: om-nom-nom@gmail.com
                 </h5>
             </div>
            
